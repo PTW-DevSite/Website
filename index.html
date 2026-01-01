@@ -11,13 +11,49 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<!-- Custom styles for video background -->
 		<style>
-			/* Soft natural water-inspired accents */
+			/* Hero section with video */
+			#intro {
+				position: relative;
+				overflow: hidden;
+				background: url('images/background1.jpg') center center / cover no-repeat fixed; /* Static fallback */
+				color: white;
+				text-align: center;
+			}
+
+			#hero-video {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				min-width: 100%;
+				min-height: 100%;
+				width: auto;
+				height: auto;
+				transform: translate(-50%, -50%);
+				z-index: -1;
+				object-fit: cover;
+			}
+
+			.intro-content {
+				position: relative;
+				z-index: 1;
+				padding: 15% 5% 10%;
+			}
+
+			/* Hide video on mobile/tablet – use static image instead for performance */
+			@media (max-width: 980px) {
+				#hero-video {
+					display: none;
+				}
+			}
+
+			/* Additional soft water-inspired accents */
 			#header { background: rgba(44, 122, 122, 0.85); }
 			.major h2 { color: #2c7a7a; }
 			.button.primary { background-color: #2c7a7a; border-color: #2c7a7a; }
 			.button.primary:hover { background-color: #1e5d5d; }
-			#intro { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('../images/background1.jpg') center center / cover no-repeat fixed; }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -25,26 +61,26 @@
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
-				<!-- Intro -->
-<div id="intro">
-    <!-- Video Background (Desktop/Tablet) -->
-    <video autoplay muted loop playsinline poster="images/background1.jpg" id="hero-video">
-        <source src="hero-video.mp4" type="video/mp4">
-        <!-- Add WebM for better compression if you have it: <source src="hero-video.webm" type="video/webm"> -->
-        Your browser does not support the video tag. Falling back to image.
-    </video>
+				<!-- Intro with Video Background -->
+					<div id="intro">
+						<!-- Video Background -->
+						<video autoplay muted loop playsinline poster="images/background1.jpg" id="hero-video">
+							<source src="hero-video.mp4" type="video/mp4">
+							<!-- Optional: add <source src="hero-video.webm" type="video/webm"> for better compression -->
+							Your browser does not support video backgrounds.
+						</video>
 
-    <!-- Overlay Content -->
-    <div class="intro-content">
-        <img src="images/logo.jpg" alt="Pear Tree Well Logo" style="max-width:280px; margin-bottom:20px;" />
-        <h1>Pear Tree Well</h1>
-        <p>Natural Mineral Water<br>Bottled at Source in Sussex's High Weald</p>
-        <p style="font-style:italic; margin-top:15px;">Pure • Balanced • Local • Sustainable</p>
-        <ul class="actions">
-            <li><a href="#main" class="button icon solid solo fa-arrow-down scrolly">Discover More</a></li>
-        </ul>
-    </div>
-</div>
+						<!-- Overlay Content -->
+						<div class="intro-content">
+							<img src="images/logo.jpg" alt="Pear Tree Well Logo" style="max-width:280px; margin-bottom:20px;" />
+							<h1>Pear Tree Well</h1>
+							<p>Natural Mineral Water<br>Bottled at Source in Sussex's High Weald</p>
+							<p style="font-style:italic; margin-top:15px;">Pure • Balanced • Local • Sustainable</p>
+							<ul class="actions">
+								<li><a href="#main" class="button icon solid solo fa-arrow-down scrolly">Discover More</a></li>
+							</ul>
+						</div>
+					</div>
 
 				<!-- Header -->
 					<header id="header">
@@ -63,7 +99,7 @@
 						</ul>
 					</nav>
 
-				<!-- Main -->
+				<!-- Main Content (unchanged from previous version) -->
 					<div id="main">
 
 						<!-- The Source -->
@@ -91,33 +127,15 @@
 									<p>Still natural mineral water in premium glass and recyclable plastic bottles</p>
 								</header>
 
-								<article>
-									<a href="#" class="image fit"><img src="images/product1.jpg" alt="Pear Tree Well Glass Bottle" /></a>
-								</article>
-								<article>
-									<a href="#" class="image fit"><img src="images/product2.jpg" alt="Pear Tree Well Plastic Bottle" /></a>
-								</article>
-								<article>
-									<a href="#" class="image fit"><img src="images/product3.jpg" alt="Pear Tree Well Bottle" /></a>
-								</article>
-								<article>
-									<a href="#" class="image fit"><img src="images/product4.jpg" alt="Pear Tree Well 750ml" /></a>
-								</article>
-								<article>
-									<a href="#" class="image fit"><img src="images/product5.jpg" alt="Pouring Pear Tree Well Water" /></a>
-								</article>
-								<article>
-									<a href="#" class="image fit"><img src="images/product6.jpg" alt="Pear Tree Well Bottles" /></a>
-								</article>
-								<article>
-									<a href="#" class="image fit"><img src="images/product7.jpg" alt="Pear Tree Well Product" /></a>
-								</article>
-								<article>
-									<a href="#" class="image fit"><img src="images/product8.jpg" alt="Pear Tree Well Product" /></a>
-								</article>
-								<article>
-									<a href="#" class="image fit"><img src="images/product9.jpg" alt="Pear Tree Well Product" /></a>
-								</article>
+								<article><a href="#" class="image fit"><img src="images/product1.jpg" alt="Glass Bottle" /></a></article>
+								<article><a href="#" class="image fit"><img src="images/product2.jpg" alt="Plastic Bottle" /></a></article>
+								<article><a href="#" class="image fit"><img src="images/product3.jpg" alt="Case" /></a></article>
+								<article><a href="#" class="image fit"><img src="images/product4.jpg" alt="750ml Glass" /></a></article>
+								<article><a href="#" class="image fit"><img src="images/product5.jpg" alt="Pouring Water" /></a></article>
+								<article><a href="#" class="image fit"><img src="images/product6.jpg" alt="Bottles Group" /></a></article>
+								<article><a href="#" class="image fit"><img src="images/product7.jpg" alt="Product 7" /></a></article>
+								<article><a href="#" class="image fit"><img src="images/product8.jpg" alt="Product 8" /></a></article>
+								<article><a href="#" class="image fit"><img src="images/product9.jpg" alt="Product 9" /></a></article>
 							</section>
 
 						<!-- Minerals -->
@@ -151,10 +169,10 @@
 
 					</div>
 
-				<!-- Footer -->
+				<!-- Footer (Contact) -->
 					<footer id="footer">
 						<section>
-							<form action="https://formspree.io/f/your-form-id" method="POST"> <!-- Replace with your Formspree ID when ready -->
+							<form action="https://formspree.io/f/your-form-id" method="POST">
 								<div class="fields">
 									<div class="field">
 										<label for="name">Name</label>
@@ -208,4 +226,3 @@
 
 	</body>
 </html>
-
